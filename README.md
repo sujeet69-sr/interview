@@ -16,6 +16,7 @@ serverless-offline: This plugin allows the service to run locally for testing wi
 Prerequisites
     1.Install Node.js and Serverless framework (npm install -g serverless).
     2. Configure AWS credentials (aws configure).
+    3. Install Docker in system for connectig DB
 
 Deployment:
     1.Clone the repository containing this project.
@@ -24,6 +25,7 @@ Deployment:
 
 Test Locally
     To test in local use the serverless-offline plugin
-        1. install dependency npm install
+        1. Install dependency npm install
+        2. Run docker run -p 8000:8000 amazon/dynamodb-local
         2. Run serverless offline
         3. Will get list of endpoint's api list
