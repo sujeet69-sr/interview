@@ -15,9 +15,8 @@ provider:
   runtime: nodejs18.x
 
 plugins:
+ - serverless-offline
 
- - serverless-offline  
-# The `functions` block defines what code to deploy
 functions:
   shortUrl:
     handler: controller/url.shortUrl
