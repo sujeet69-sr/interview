@@ -1,0 +1,35 @@
+# Welcome to serverless. Read the docs
+# https://serverless.com/framework/docs/
+
+# Serverless.yml is the configuration the CLI
+# uses to deploy your code to your provider of choice
+
+# The `service` block is the name of the service
+service: my-service
+
+frameworkVersion: "3"
+
+# The `provider` block defines where your service will be deployed
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+plugins:
+
+ - serverless-offline  
+# The `functions` block defines what code to deploy
+functions:
+  shortUrl:
+    handler: controller/url.shortUrl
+    events:
+      - http:
+          path: shortUrl
+          method: post
+          cors: true
+  originalUrl:
+    handler: controller/url.originalUrl
+    events:
+      - http:
+          path: originalUrl/{shortUrl}
+          method: get
+          cors: true
